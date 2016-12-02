@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from wtforms import StringField, TextAreaField, SubmitField, validators, PasswordField, DateField
-from models import db, User, JournalEntry
+from vitae_mecum.models import db, User, JournalEntry
 
 
 class ContactForm(Form):

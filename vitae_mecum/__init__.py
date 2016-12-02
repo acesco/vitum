@@ -12,13 +12,13 @@ app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = 'username'
 app.config["MAIL_PASSWORD"] = 'password'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/' \
-                                        'vitum'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bhbritta:periodic@bhbritta.mysql.pythonanywhere-services.com/' \
+                                        'bhbritta$vitum'
 
-from models import db
+from vitae_mecum.models import db
 db.init_app(app)
 
-from routes import mail
+from vitae_mecum.routes import mail
 mail.init_app(app)
 
 import vitae_mecum.routes

@@ -2,10 +2,10 @@ from vitae_mecum import app
 from flask import render_template, request, flash, session, url_for, redirect
 from flask_mail import Mail
 from vitae_mecum.forms import ContactForm, SignupForm, SigninForm, JournalForm
-from models import db, User, JournalEntry
+from vitae_mecum.models import db, User, JournalEntry
 from datetime import date
 from sqlalchemy import desc
-from config import *
+from vitae_mecum.config import *
 
 mail = Mail()
 
