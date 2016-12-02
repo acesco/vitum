@@ -14,9 +14,10 @@
                         <li><a href="{{ url_for('home') }}">Home</a></li>
                         <li><a href="{{ url_for('about') }}">About</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                        {% if 'email' in session %}
+                        {% if 'uid' in session %}
                             <li><a href="{{ url_for('profile') }}">Profile</a></li>
                             <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+                            <li><a href="{{ url_for('add_journal') }}">Add Journal Entry</a></li>
                         {% else %}
                             <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
                             <li><a href="{{ url_for('signin') }}">Sign In</a></li>

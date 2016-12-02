@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbo">
+        <h2>Journal Entries<h2>
+    </div>
+    {% for e in entries.items %}
+        <div class="jumbo">
+            <h4>{{ e.date }}</h4>
+            {{ e.entry }}
+        </div>
+    {% endfor %}
+    {% if entries.has_prev %}
+        <a href="{{ url_for('user_journal', uid=uid, page=entries.prev_num) }}">&lt;&lt; Newer posts</a>
+    {% else %}
+        &lt;&lt; Newer posts
+    {% endif %} |
+    {% if entries.has_next %}
+        <a href="{{ url_for('user_journal', uid=uid, page=entries.next_num) }}">Older posts &gt;&gt;</a>
+    {% else %}
+        Older posts &gt;&gt;
+    {% endif %}
+{% endblock %}

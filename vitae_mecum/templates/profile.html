@@ -4,4 +4,13 @@
         <h2>Profile<h2>
         <h3>This is {{ session['email'] }}'s profile page<h3>
     </div>
+    <div class="jumbo">
+        <h2>Journal Entries<h2>
+    </div>
+    {% for j in journal %}
+        <div class="jumbo">
+            <h4>{{ j.date }}</h4>
+            {{ j.entry }}
+        </div>
+    {% endfor %}
 {% endblock %}

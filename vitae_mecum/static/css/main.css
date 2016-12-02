@@ -63,6 +63,14 @@ h3 {
   color: #999;
 }
 
+h4 {
+    font-size: 1.2 em;
+    font-weight: 60;
+    margin-top: 15px;
+    text-align: left;
+    color: #999
+}
+
 /*
  * Display navigation links inline
  */
@@ -107,7 +115,8 @@ form input#subject {
   font-size: 1.1em;
 }
 
-form textarea#message {
+form textarea#message,
+form textarea#entry{
   width: 500px;
   height: 100px;
   background-color: #fafafa;
@@ -163,7 +172,8 @@ form input#submit:hover{
 
 form input#firstname,
 form input#lastname,
-form input#password {
+form input#password,
+form input#date{
   width: 400px;
   background-color: #fafafa;
   -webkit-border-radius: 3px;

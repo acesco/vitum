@@ -1,6 +1,6 @@
 from flask_wtf import Form
-from wtforms import StringField, TextAreaField, SubmitField, validators, PasswordField
-from models import db, User
+from wtforms import StringField, TextAreaField, SubmitField, validators, PasswordField, DateField
+from models import db, User, JournalEntry
 
 
 class ContactForm(Form):
@@ -46,9 +46,28 @@ class SigninForm(Form):
         if not Form.validate(self):
             return False
 
-        user = User.query.filter_by(email = self.email.data.lower()).first()
+        user = User.query.filter_by(email=self.email.data.lower()).first()
         if user and user.check_password(self.password.data):
             return True
         else:
             self.email.errors.append("Invalid e-mail or password")
             return False
+
+
+class JournalForm(Form):
+    entry = TextAreaField("Entry", [validators.InputRequired("Please enter your entry.")])  # SEE IF POSSIBLE TO HAVE WYSIWIG FIELD
+    date = DateField('Date', format='%Y-%m-%d')
+    submit = SubmitField("Submit")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+    def validate(self):
+        if not Form.validate(self):
+            return False
+
+        entry = JournalEntry.query.filter_by(date=self.date.data).first()
+        if entry is not None:
+            self.date.errors.append("Journal entry already exists")
+            return False
+        return True
